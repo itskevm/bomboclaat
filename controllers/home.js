@@ -34,7 +34,11 @@ module.exports = function(app) {
         })
         */
         
-        res.render("home", {dt : dt});
+        res.render("home", {
+            dt : dt,
+            id : thisID,
+            name : thisName
+        });
     });
 
 }
