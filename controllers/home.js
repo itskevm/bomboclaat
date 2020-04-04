@@ -36,8 +36,8 @@ module.exports = function(app) {
         
         res.render("home", {
             dt : dt,
-            id : thisID,
-            name : thisName
+            thisID : id,
+            thisName : name
         });
     });
 
