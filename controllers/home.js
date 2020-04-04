@@ -5,6 +5,17 @@ const pool = new Pool({
     connectionString: connectionString,
 })
 
+function loadDb(err, result) {
+    console.log("start me funky: ")
+    console.log(err);
+    console.log(result.rows[0]);
+    console.log(result.rows.length);
+    id = result.rows[0].schedule_id;
+    name = result.rows[0].schedule_name;
+    console.log(id);
+    console.log(name);
+};
+
 module.exports = function(app) {
 
     app.get("/", function(req, res){
@@ -14,16 +25,7 @@ module.exports = function(app) {
         var id;
         var name;
         
-        pool.query('SELECT * FROM schedule', function(err, result) {
-            console.log("start me funky: ")
-            console.log(err);
-            console.log(result.rows[0]);
-            console.log(result.rows.length);
-            id = result.rows[0].schedule_id;
-            name = result.rows[0].schedule_name;
-            console.log(id);
-            console.log(name);
-          })
+        pool.query('SELECT * FROM schedule', loadDb)
         
         /*
         pool.query('SELECT * FROM schedule', (error, results) => {
