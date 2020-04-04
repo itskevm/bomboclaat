@@ -1,4 +1,5 @@
 var express = require("express")
+var port = process.env.PORT || 3000;
 var homeController = require('./controllers/home');
 var acontroller = require('./controllers/1cont');
 
@@ -17,6 +18,6 @@ homeController(app);
 
 //acontroller(app);
 
-app.listen(process.env.PORT || 3002, () => {
-    console.log("The server is listening to port 5000");
+app.listen(port, function () {
+    console.log("The server is listening to port !");
 });
