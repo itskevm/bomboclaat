@@ -1,0 +1,15 @@
+footer a.sender {
+color: #000;
+}
+
+footer {
+/* position:fixed; */
+bottom: 0px;
+width: 100%;
+text-align: center;
+}
+
+footer p {
+font-size:16px;
+text-align:center;
+}
