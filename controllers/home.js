@@ -12,7 +12,7 @@ module.exports = function(app) {
         var full = new Date();
         var dt = full.getFullYear();
         var id;
-        var name
+        var name;
         
         pool.query('SELECT * FROM schedule', function(err, result) {
             console.log("start me funky: ")
