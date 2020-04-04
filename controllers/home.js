@@ -23,7 +23,7 @@ module.exports = function(app) {
         var full = new Date();
         var dt = full.getFullYear();
         var id;
-        var name;
+        var name = "juaneco";
         
         pool.query('SELECT * FROM schedule', loadDb)
         
