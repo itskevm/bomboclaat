@@ -12,8 +12,8 @@ function loadDb(err, result) {
     console.log(result.rows.length);
     //id = result.rows[0].schedule_id;
     //name = result.rows[0].schedule_name;
-    console.log(id);
-    console.log(name);
+    //console.log(id);
+    //console.log(name);
     return result.rows[0];
 };
 
