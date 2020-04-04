@@ -17,6 +17,6 @@ homeController(app);
 
 //acontroller(app);
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT || 3002, () => {
     console.log("The server is listening to port 5000");
 });
