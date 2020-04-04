@@ -11,13 +11,16 @@ module.exports = function(app) {
         console.log("Root was requested");
         var full = new Date();
         var dt = full.getFullYear();
+        var id;
+        var name
         
         pool.query('SELECT * FROM schedule', function(err, result) {
             console.log("start me funky: ")
+            console.log(err);
             console.log(result.rows[0]);
             console.log(result.rows.length);
-            var id = result.rows[0].schedule_id;
-            var name = result.rows[0].schedule_name;
+            id = result.rows[0].schedule_id;
+            name = result.rows[0].schedule_name;
             console.log(id);
             console.log(name);
           })
@@ -36,8 +39,8 @@ module.exports = function(app) {
         
         res.render("home", {
             dt : dt,
-            thisID : id,
-            thisName : name
+            id : id,
+            name : name
         });
     });
 
