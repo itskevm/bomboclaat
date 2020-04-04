@@ -15,6 +15,9 @@ module.exports = function(app) {
         pool.query('SELECT * FROM schedule', function(err, result) {
             console.log("start me funky: ")
             console.log(result.rows[0]);
+            console.log(result.rows.length);
+            console.log(result.rows.schedule_name);
+            console.log(result);
           })
         
         /*
