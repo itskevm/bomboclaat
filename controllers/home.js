@@ -12,7 +12,7 @@ module.exports = function(app) {
         var full = new Date();
         var dt = full.getFullYear();
         
-        pool.query('SELECT * FROM schedule', (err, res) => {
+        pool.query('SELECT * FROM schedule', (err, rows) => {
             console.log("start me funky: ")
             console.log(res.json(rows))
           })
