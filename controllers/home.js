@@ -10,10 +10,11 @@ function loadDb(err, result) {
     console.log(err);
     console.log(result.rows[0]);
     console.log(result.rows.length);
-    id = result.rows[0].schedule_id;
-    name = result.rows[0].schedule_name;
+    //id = result.rows[0].schedule_id;
+    //name = result.rows[0].schedule_name;
     console.log(id);
     console.log(name);
+    return result.rows[0];
 };
 
 module.exports = function(app) {
@@ -22,10 +23,11 @@ module.exports = function(app) {
         console.log("Root was requested");
         var full = new Date();
         var dt = full.getFullYear();
-        var id;
-        var name = "juaneco";
         
-        pool.query('SELECT * FROM schedule', loadDb)
+        var todo = pool.query('SELECT * FROM schedule', loadDb);
+        
+        var id = todo.schedule_id;
+        var name = todo.schedule_name;
         
         /*
         pool.query('SELECT * FROM schedule', (error, results) => {
