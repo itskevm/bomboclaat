@@ -16,9 +16,10 @@ module.exports = function(app) {
             console.log("start me funky: ")
             console.log(result.rows[0]);
             console.log(result.rows.length);
-            var sked = JSON.parse(result.rows[0]);
-            console.log(sked.schedule_id);
-            console.log(sked.schedule_name);
+            var id = result.rows[0].schedule_id;
+            var name = result.rows[0].schedule_name;
+            console.log(id);
+            console.log(name);
           })
         
         /*
