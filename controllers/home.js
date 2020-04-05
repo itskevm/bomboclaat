@@ -18,16 +18,20 @@ module.exports = function(app) {
         var id = "777"
         var name;
 
-        pool.query('SELECT * FROM schedule',  name = function(err, result) {
+        pool.query('SELECT * FROM schedule', function(err, result) {
             console.log("start me funky: ")
             console.log(err);
             console.log(result.rows[0]);
             console.log(result.rows.length);
             id = result.rows[0].schedule_id;
-            var returnable = (result.rows[0].schedule_name);
+            name = (result.rows[0].schedule_name);
             console.log(id);
             console.log(name);
-            return returnable;
+            res.render("home", {
+                dt : dt,
+                id : id,
+                name : name
+            });
           })
         
         /*
@@ -41,12 +45,6 @@ module.exports = function(app) {
             Response.status(200).json(results.rows)
         })
         */
-        
-        res.render("home", {
-            dt : dt,
-            id : id,
-            name : name
-        });
     });
 
 }
