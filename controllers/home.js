@@ -18,13 +18,13 @@ module.exports = function(app) {
         var id = "777"
         var name = "shaq daddy"
 
-        pool.query('SELECT * FROM schedule', function(err, result) {
+        pool.query('SELECT * FROM schedule',  name = function(err, result) {
             console.log("start me funky: ")
             console.log(err);
             console.log(result.rows[0]);
             console.log(result.rows.length);
             id = result.rows[0].schedule_id;
-            name = result.rows[0].schedule_name;
+            return result.rows[0].schedule_name;
             console.log(id);
             console.log(name);
           })
