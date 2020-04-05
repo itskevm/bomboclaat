@@ -19,7 +19,7 @@ module.exports = function(app) {
         var id = "777"
         var name = "shaq daddy"
 
-        pool.query('SELECT * FROM schedule', id, name, function(err, result) {
+        pool.query('SELECT * FROM schedule', function(err, result) {
             console.log("start me funky: ")
             console.log(err);
             console.log(result.rows[0]);
