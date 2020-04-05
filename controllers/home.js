@@ -16,7 +16,7 @@ module.exports = function(app) {
         var full = new Date();
         var dt = full.getFullYear();
         var id = "777"
-        var name = "shaq daddy"
+        var name;
 
         pool.query('SELECT * FROM schedule',  name = function(err, result) {
             console.log("start me funky: ")
@@ -24,9 +24,10 @@ module.exports = function(app) {
             console.log(result.rows[0]);
             console.log(result.rows.length);
             id = result.rows[0].schedule_id;
-            return result.rows[0].schedule_name;
+            var returnable = (result.rows[0].schedule_name);
             console.log(id);
             console.log(name);
+            return returnable;
           })
         
         /*
