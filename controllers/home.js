@@ -3,7 +3,6 @@ const { Pool } = require('pg')
 const connectionString = 'postgres://wijeezpfrowzgj:0d742ba8ed25fae44c5999999385c5771bf52bd868791616a9c5b75e27232424@ec2-54-92-174-171.compute-1.amazonaws.com:5432/deal6623ob8hm2'
 const pool = new Pool({
     connectionString: connectionString,
-    ssl: true
 })
 
 function loadDb(err) {
