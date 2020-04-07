@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="https://thumbs.dreamstime.com/b/sand-hourglass-icon-isolated-white-template-your-design-165514454.jpg">
+	<meta charset="utf-8">
+    <title>SyncHora</title>
+    <link href="/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="/footer.css" rel="stylesheet" type="text/css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Where you should come to do things
+      relevant to making any kind of agenda with other people.">
+  	<meta name="author" content="Kevin Matos">
+	
+</head>
+<body>
+    <a href="/">
+        <div>
+            <h1 class="top" id="cabeza">SyncHora</h1>
+            <h3>Building around everyone</h3>
+        </div>
+    </a>
+    <hr>
+    <div class="loader">
+        <p>Load a Schedule: </p>
+        <form action="/schedule" method="POST">
+            <input type="number" id="code" name="code" placeholder="Schedule ID">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="loader">
+        <p>Create new: </p>
+        <form action="/schedule" method="POST">
+            <input type="text" id="newname" name="newname" placeholder="Schedule Name">
+            <input type="submit" value="Create">
+        </form>
+    </div>
+    <footer>
+        <p><a class="sender" href="/">Home</a> |
+          <a class="sender" href="/">CS 313 Assignments</a> |
+          <a class="sender" href="#cabeza">Return to top</a><br>
+          <a href="https://youtube.com/kevm967">
+            <img src="https://i.ibb.co/6vBchr4/2019-LOGO-1.png"
+              alt="KevMGamingLogo" style="vertical-align:middle" width="80" height="80" /></a>
+          KevMGaming © 2020</p>
+      </footer>
+</body>
+</html>

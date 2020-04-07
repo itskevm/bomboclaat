@@ -3,41 +3,184 @@
 <head>
     <link rel="icon" href="https://thumbs.dreamstime.com/b/sand-hourglass-icon-isolated-white-template-your-design-165514454.jpg">
 	<meta charset="utf-8">
-    <title>SyncHora</title>
+    <title>SyncHora | Schedule</title>
     <link href="/styles.css" rel="stylesheet" type="text/css"/>
     <link href="/footer.css" rel="stylesheet" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Where you should come to do things
       relevant to making any kind of agenda with other people.">
-  	<meta name="author" content="Kevin Matos">
+    <meta name="author" content="Kevin Matos">
+    <script>
+        document.getElementById("corele").disabled = true;
+    </script>
 	
 </head>
 <body>
-    <h1 class="top" id="cabeza">SyncHora</h1>
-    <h3>Building around everyone</h3>
+    <a href="/">
+        <div>
+            <h1 class="top" id="cabeza">SyncHora</h1>
+            <h3>Building around everyone</h3>
+        </div>
+    </a>
     <hr>
     <div class="loader">
         <p>Load a Schedule: </p>
-        <input type="number" id="code" name="code" placeholder="Schedule ID">
-        <input type="submit" value="Search">
+        <form action="/schedule" method="POST">
+            <input type="number" id="code" name="code" placeholder="Schedule ID">
+            <input type="submit" value="Search">
+        </form>
     </div>
     <div class="skedinfo">
-        <p>Schedule ID: 001</p>
-        <p>Schedule Name: Cal</p>
+        <h2 class="divTitle">Schedule Details</h2>
+        <p><strong>Note:</strong> These details are unique to the schedule you have created.
+            If you wish to access your schedule again, or have someone find
+            your schedule, you must remember to find it using the ID below.</p>
+        <p>Schedule ID: <%= id %></p>
+        <p>Schedule Name: <%= name %></p>
     </div>
     <div class="skedfacts">
-        <p>Monday is busy.</p>
-        <p>Tuesday is busy.</p>
-        <p>Wednesday is free from 10:00 to 18:00.</p>
+        <h2 class="divTitle">Schedule Availability</h2>
+        <% if (sthapit == "yes") { %>
+                <p>Monday is free from <%=mos%>:00 to <%=moe%>:00.</p>
+                <p>Tuesday is free from <%=tus%>:00 to <%=tue%>:00.</p>
+                <p>Wednesday is free from <%=wes%>:00 to <%=wee%>:00.</p>
+                <p>Thursday is free from <%=ths%>:00 to <%=the%>:00.</p>
+                <p>Friday is free from <%=frs%>:00 to <%=fre%>:00.</p>
+            <%} else { %>
+                <p>Set your availability for it to be displayed here.</p>
+            <% } %>
+    </div>
+    <div class="skedinfo">
+        <h2 class="divTitle">Set Availability</h2>
+        <form action="/schedule" method="POST">
+            <input type="hidden" id="sid" name="sid" value=<%= id %>>
+            <input type="hidden" id="sname" name="sname" value=<%= name %>>
+            <p>Monday</p>
+            <label for="monday1">Start:</label>
+            <select id="monday1" name="mostart">
+                <option value="0">12:00 am</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=10;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><br>
+            <label for="monday2">End:</label>
+            <select id="monday2" name="moend">
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><hr>
+            <p>Tuesday</p>
+            <label for="tu1">Start:</label>
+            <select id="tu1" name="tustart">
+                <option value="0">12:00 am</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=10;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><br>
+            <label for="tu2">End:</label>
+            <select id="tu2" name="tuend">
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><hr>
+            <p>Wednesday</p>
+            <label for="we1">Start:</label>
+            <select id="we1" name="westart">
+                <option value="0">12:00 am</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=10;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><br>
+            <label for="we2">End:</label>
+            <select id="we2" name="weend">
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><hr>
+            <p>Thursday</p>
+            <label for="th1">Start:</label>
+            <select id="th1" name="thstart">
+                <option value="0">12:00 am</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=10;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><br>
+            <label for="th2">End:</label>
+            <select id="th2" name="thend">
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><hr>
+            <p>Friday</p>
+            <label for="fr1">Start:</label>
+            <select id="fr1" name="frstart">
+                <option value="0">12:00 am</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=10;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><br>
+            <label for="fr2">End:</label>
+            <select id="fr2" name="frend">
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i%>"><%=i + ":00 am"%></option> 
+                    <% } %>
+                <option value="12">12:00 pm</option>
+                <% for (var i=1; i <=11;  i++) { %>
+                    <option value="<%=i+12%>"><%=i + ":00 pm"%></option>
+                    <% } %>
+            </select><hr>
+            <% if (sthapit == "yes") { %>
+                <p>Click on the logo at the top to make a new schedule.</p>
+                <%} else { %>
+                <input type="submit" value="Confirm">
+                <% } %>
+
+        </form>
     </div>
     <footer>
-        <p><a class="sender" href="home.php">Home</a> |
-          <a class="sender" href="directory.html">CS 313 Assignments</a> |
+        <p><a class="sender" href="/">Home</a> |
+          <a class="sender" href="/">CS 313 Assignments</a> |
           <a class="sender" href="#cabeza">Return to top</a><br>
           <a href="https://youtube.com/kevm967">
             <img src="https://i.ibb.co/6vBchr4/2019-LOGO-1.png"
               alt="KevMGamingLogo" style="vertical-align:middle" width="80" height="80" /></a>
-          KevMGaming © <%= dt %><%= name %></p>
+          KevMGaming © <%= dt %></p>
       </footer>
 </body>
 </html>
