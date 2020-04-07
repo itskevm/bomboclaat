@@ -23,14 +23,14 @@
     <div class="loader">
         <p>Load a Schedule: </p>
         <form action="/schedule" method="POST">
-            <input type="number" id="code" name="code" placeholder="Schedule ID">
+            <input type="number" id="code" name="code" placeholder="Schedule ID" min=0 required>
             <input type="submit" value="Search">
         </form>
     </div>
     <div class="loader">
         <p>Create new: </p>
         <form action="/schedule" method="POST">
-            <input type="text" id="newname" name="newname" placeholder="Schedule Name">
+            <input type="text" id="newname" name="newname" placeholder="Schedule Name" required>
             <input type="submit" value="Create">
         </form>
     </div>

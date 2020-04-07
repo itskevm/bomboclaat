@@ -26,7 +26,7 @@
     <div class="loader">
         <p>Load a Schedule: </p>
         <form action="/schedule" method="POST">
-            <input type="number" id="code" name="code" placeholder="Schedule ID">
+            <input type="number" id="code" name="code" placeholder="Schedule ID" min=0 required>
             <input type="submit" value="Search">
         </form>
     </div>

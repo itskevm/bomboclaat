@@ -8,7 +8,7 @@ const pool = new Pool({
 })
 
 // comment out next line for heroku usage
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 function loadDb(err) {
 
